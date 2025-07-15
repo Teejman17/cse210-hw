@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+
 
 public class Journal
 {
@@ -13,17 +15,17 @@ public class Journal
         Console.WriteLine($"{prompt}");
         Console.Write("> ");
         string entry = Console.ReadLine();
-        DateTime theCurrentTime = DateTime.Now;
-        newEntry._date = theCurrentTime.ToShortDateString();
         _entry.Add(entry);
     }
 
     public void DisplayAll()
     {
-        foreach (string entry in _entry)
+        foreach (var entry in _entry)
+        // foreach (var entry in _entry)
         {
             Console.WriteLine($"Entry: {entry}");
         }
+
     }
 
     public void SaveToFile()
@@ -33,10 +35,15 @@ public class Journal
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            foreach (string entry in _entry)
+            foreach (var entry in _entry)
             {
                 outputFile.WriteLine(entry);
+
             }
+
+        Console.WriteLine("Journal saved successfully");
+                // catch error saving journal
+            
         }
 
     }
@@ -46,5 +53,10 @@ public class Journal
         Console.WriteLine("Please enter the file name you would like to load from: ");
         string fileName = Console.ReadLine();
         _entry.AddRange(System.IO.File.ReadAllLines(fileName));
+
+        // while ()
+        // {
+
+        // }
     }
 }

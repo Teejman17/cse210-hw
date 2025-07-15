@@ -2,7 +2,7 @@ using System;
 
 public class Entry
 {
-    public string _date;
+    public DateTime _date = DateTime.Now;
     public string _promptText;
     public string _entryText;
 

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 class Program
 {
@@ -17,14 +19,13 @@ class Program
             Console.WriteLine("3. Save");
             Console.WriteLine("4. Load");
             Console.WriteLine("5. Quit");
+            Console.Write("Your choice: ");
 
             selection = Console.ReadLine();
 
             if (selection == "1")
             {
-                Entry entry = new Entry();
-                entry.Display();
-
+                journal.AddEntry();
             }
 
             else if (selection == "2")
