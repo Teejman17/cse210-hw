@@ -26,11 +26,11 @@ public class Reference
     {
         if (_endverse == 0)
         {
-            return $"{_book} {_chapter}:{_verse}";
+            return $"{_book} {_chapter}:{_verse} ";
         }
         else
         {
-            return $"{_book} {_chapter}:{_verse}-{_endverse}";
+            return $"{_book} {_chapter}:{_verse}-{_endverse} ";
         }
 
 

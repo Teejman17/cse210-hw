@@ -25,7 +25,7 @@ class Program
 
         Console.Clear();
         Console.WriteLine("Congratulations! You've practiced memorizing the scripture.");
-        Console.WriteLine(scriptureText);
+        // Console.WriteLine($"{scripture.GetDisplayText()} {scriptureText}");
     
 
 
