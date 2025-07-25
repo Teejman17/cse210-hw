@@ -1,3 +1,5 @@
+using System;
+
 public class Reference
 {
     private string _book;
@@ -7,15 +9,15 @@ public class Reference
 
     public Reference(string book, int chapter, int verse)
     {
-        _book = _book;
-        _chapter = _chapter;
+        _book = book;
+        _chapter = chapter;
         _verse = verse;
     }
 
     public Reference(string book, int chapter, int verse, int endverse)
     {
-        _book = _book;
-        _chapter = _chapter;
+        _book = book;
+        _chapter = chapter;
         _verse = verse;
         _endverse = endverse;
     }
@@ -26,7 +28,8 @@ public class Reference
         {
             return $"{_book} {_chapter}:{_verse}";
         }
-        else {
+        else
+        {
             return $"{_book} {_chapter}:{_verse}-{_endverse}";
         }
 
