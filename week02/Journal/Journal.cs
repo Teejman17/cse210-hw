@@ -5,7 +5,7 @@ using System.IO;
 
 public class Journal
 {
-    public List<Entry> _entry = new List<Entry>();
+    public List<Entry> entries = new List<Entry>();
     PromptGenerator GetPrompt = new PromptGenerator();
 
 
@@ -19,19 +19,18 @@ public class Journal
         newEntry._date = DateTime.Now;
         newEntry._promptText = prompt;
         newEntry._entryText = entry;
-        _entry.Add(newEntry);
+        entries.Add(newEntry);
     }
 
     public void DisplayAll()
     {
-        foreach (var entry in _entry)
+        foreach (Entry entry in entries)
         {
-            Console.WriteLine($"Entry: {entry.Display}");
+            Console.WriteLine($"Entry: {entry}");
         }
-
     }
 
-    public void SaveToFile()
+    public void SaveToFile(List<Entry> _entry)
     {
         Console.WriteLine("Please enter file name you would like to save to: ");
         string fileName = Console.ReadLine();
@@ -41,7 +40,6 @@ public class Journal
             foreach (var entry in _entry)
             {
                 outputFile.WriteLine(entry);
-
             }
 
         Console.WriteLine("Journal saved successfully");
