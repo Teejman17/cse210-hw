@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Comment
 {
-    private string _name;
-    private string _text;
+    public string _name { get; private set; }
+    public string _text { get; private set; }
 
     public Comment(string name, string text)
     {
