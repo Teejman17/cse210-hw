@@ -16,7 +16,7 @@ class Program
         Products tv = new Products("Samsung 65in", "SAM65TV", 599.99, 2);
         Products coffeeTable = new Products("Coffee Table", "COFTAB", 299.95, 1);
         Products dryer = new Products("LG Touch", "LGDRY", 815.00, 1);
-        Products golfClubs = new Products("Callaway 9 set", "CALGOLF", 1500.00, 1);
+        Products golfClubs = new Products("Callaway complete set", "CALGOLF", 1500.00, 1);
         Products motorcycle = new Products("2024 Honda Rebel", "24HONREB", 6500.00, 3);
 
         Order order1 = new Order(customer1);
@@ -37,13 +37,13 @@ class Program
         Console.WriteLine(order1.shippingLabel());
         Console.WriteLine($"Order total cost: {order1.TotalOrderCost():F2}");
 
-        Console.WriteLine("-", 15);
+        Console.WriteLine(new string('-', 150));
 
         Console.WriteLine(order2.packingLabel());
         Console.WriteLine(order2.shippingLabel());
         Console.WriteLine($"Order total cost: {order2.TotalOrderCost():F2}");
 
-        Console.WriteLine("-", 15);
+        Console.WriteLine(new string ('-', 150));
 
         Console.WriteLine(order3.packingLabel());
         Console.WriteLine(order3.shippingLabel());
