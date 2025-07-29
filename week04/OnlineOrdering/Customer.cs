@@ -4,20 +4,27 @@ using System.Collections.Generic;
 public class Customer
 {
     private string _customerName;
-    private string _customerAddress;
+    private Address _customerAddress;
 
-    public Customer(string customerName, string customerAddress)
+    public Customer(string customerName, Address customerAddress)
     {
         _customerName = customerName;
         _customerAddress = customerAddress;
     }
 
+    public string GetName()
+    {
+        return _customerName;
+    }
+
+    public Address GetAddress()
+    {
+        return _customerAddress;
+    }
+
     public bool Country()
     {
-        if (_country == "USA")
-        {
-            return true;
-        }
-    } 
+        return _customerAddress.nationalAddress();
+    }
 
 }
