@@ -51,7 +51,12 @@ public class Order
     public string shippingLabel()
     {
         string label = $"Customer: {_customer.GetName()},   Address: {_customer.GetAddress().FullAddress()}";
-        return label;        
+        return label;
+    }
+
+    public void AddProduct(Products product)
+    {
+        _products.Add(product);
     }
 
 }
