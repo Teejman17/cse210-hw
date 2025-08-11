@@ -130,13 +130,31 @@ public class GoalManager
         if (completedGoal >= 0 && completedGoal < _goals.Count)
         {
             Goal goal = _goals[completedGoal];
-            int pointsEarned;
+            int pointsEarned = 0;
 
-            if (goal is SimpleGoal && goal.IsComplete())
+            if (goal.IsComplete())
             {
-                Console.WriteLine("This goal is completed.");
+                Console.WriteLine("The goal is completed.");
+                return;
             }
-            else
+            goal.RecordEvent();
+
+            if (goal is SimpleGoal)
+            {
+                pointsEarned = int.Parse(goal.GetPoints());
+            }
+            else if (goal is EternalGoal)
+            {
+                pointsEarned = int.Parse(goal.GetPoints());
+            }
+            else if (goal is ChecklistGoal checklistGoal)
+            {
+                pointsEarned = int.Parse(goal.GetPoints());
+                if (checklistGoal.IsComplete())
+                {
+                    pointsEarned = checklistGoal.GetBonus();
+                }
+            }
             {
                 goal.RecordEvent();
                 pointsEarned = int.Parse(goal.GetPoints());
@@ -173,7 +191,7 @@ public class GoalManager
         for (int i = 1; i < lines.Length; i++)
         {
             string line = lines[i];
-            string[] parts = line.Split(",");
+            string[] parts = line.Split(":");
             string type = parts[0];
             string[] data = parts[1].Split(",");
 
